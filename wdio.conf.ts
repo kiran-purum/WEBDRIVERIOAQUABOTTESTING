@@ -1,4 +1,5 @@
-import { deleteDirectory } from "./features/utils/deleteDirectory";
+import folderUtils from "./features/utils/folderUtils";
+
 
 export const config: WebdriverIO.Config = {
     //
@@ -195,7 +196,8 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     onPrepare: function (config, capabilities) {
-        deleteDirectory("allure-results")
+        folderUtils.deleteDirectory("allure-results")
+        folderUtils.deleteDirectory("allure-report")
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
